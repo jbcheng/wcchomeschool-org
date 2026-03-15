@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">WCC Homeschool Conference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #FDF8F0;
+      --parchment:#F5EDD8;
+      --gold:     #C8963E;
+      --gold-lt:  #E8B96A;
+      --deep:     #1C2B1A;
+      --forest:   #2D4A2A;
+      --sage:     #4A7A44;
+      --rust:     #8B3A2A;
+      --text:     #2C2416;
+      --muted:    #6B5B3E;
+      --serif:    'Playfair Display', Georgia, serif;
+      --sans:     'Source Sans 3', sans-serif;
+      --radius:   12px;
+      --shadow:   0 4px 24px rgba(28,43,26,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--deep);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      color: var(--gold-lt);
+      font-size: 1rem;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a {
+      color: #C8D4B8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-lt); }
+    .nav-links a.btn-nav {
+      background: var(--gold);
+      color: var(--deep);
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+    }
+    .nav-links a.btn-nav:hover { background: var(--gold-lt); color: var(--deep); }
+    .past-years-nav { font-size: 0.75rem; color: #8A9E80; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      background: var(--deep);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 60%, rgba(200,150,62,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 80% 30%, rgba(45,74,42,0.4) 0%, transparent 70%);
+    }
+    .hero-ornament {
+      font-size: 2rem;
+      opacity: 0.4;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1s ease both;
+    }
+    .hero-year {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .hero-title-zh {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      color: #A0B890;
+      margin-bottom: 0.5rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 6vw, 4rem);
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .hero-theme {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--gold-lt);
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      animation: fadeUp 0.8s 0.5s ease both;
+    }
+    .hero-meta-item { text-align: center; }
+    .hero-meta-label {
+      font-size: 0.7rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+    .hero-meta-value { color: #D8E8C8; font-size: 0.95rem; font-weight: 300; }
+    .hero-meta-value a { color: #D8E8C8; }
+
+    .hero-buttons {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.8s 0.6s ease both;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+    .btn-primary { background: var(--gold); color: var(--deep); }
+    .btn-secondary { background: transparent; color: var(--cream); border: 1.5px solid rgba(255,255,255,0.35); }
+    .btn-secondary:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.3);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      color: var(--deep);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .section-title-zh {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .divider {
+      width: 60px; height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── INFO BAR ── */
+    .info-bar {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 0;
+    }
+    .info-bar .section-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+    }
+    .info-card {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .info-card:last-child { border-right: none; }
+    .info-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .info-card-label {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-lt); margin-bottom: 0.4rem;
+    }
+    .info-card-value { font-weight: 300; line-height: 1.5; font-size: 0.95rem; }
+    .info-card-value a { color: var(--cream); }
+
+    /* ── SESSIONS ── */
+    .sessions-section { background: var(--parchment); }
+    .sessions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .session-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-left: 4px solid var(--gold);
+    }
+    .session-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(28,43,26,0.15); }
+    .session-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .session-en { font-weight: 600; font-size: 0.95rem; color: var(--deep); margin-bottom: 0.25rem; }
+    .session-zh { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── SPEAKERS ── */
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .speaker-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+      transition: transform 0.2s;
+    }
+    .speaker-card:hover { transform: translateY(-4px); }
+    .speaker-header {
+      background: var(--forest);
+      padding: 2rem;
+      display: flex; gap: 1.25rem; align-items: center;
+    }
+    .speaker-photo {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold);
+      flex-shrink: 0;
+      background: var(--deep);
+    }
+    .speaker-photo-placeholder {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--sage);
+      border: 3px solid var(--gold);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+    }
+    .speaker-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+    .speaker-role { font-size: 0.8rem; color: #A0B890; font-weight: 300; }
+    .speaker-body { padding: 1.5rem; flex: 1; }
+    .speaker-bio-en { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.75rem; }
+    .speaker-bio-zh { font-size: 0.82rem; color: #9A8A70; line-height: 1.7; border-top: 1px solid #EEE8DC; padding-top: 0.75rem; }
+    .speaker-toggle {
+      background: none; border: none; cursor: pointer;
+      font-size: 0.78rem; color: var(--gold); font-weight: 600;
+      padding: 0; margin-top: 0.5rem; font-family: var(--sans);
+    }
+
+    /* ── DONATE ── */
+    .donate-section { background: var(--deep); color: var(--cream); }
+    .donate-section .section-title { color: var(--cream); }
+    .donate-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 2rem;
+    }
+    .donate-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(200,150,62,0.3);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .donate-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .donate-card-title { font-family: var(--serif); font-size: 1.1rem; color: var(--gold-lt); margin-bottom: 0.75rem; }
+    .donate-card-detail { font-size: 0.88rem; color: #B0C0A0; line-height: 1.6; }
+    .donate-card-value { font-weight: 600; color: var(--cream); font-size: 1rem; margin-top: 0.5rem; }
+
+    /* ── PAST YEARS ── */
+    .past-section { background: var(--parchment); }
+    .past-list { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .past-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border: 1.5px solid var(--gold);
+      border-radius: 30px;
+      text-decoration: none;
+      color: var(--deep);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .past-link:hover { background: var(--gold); color: white; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111A10;
+      color: #607050;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.82rem;
+      line-height: 2;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── MODAL ── */
+    .modal-backdrop {
+      display: none;
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.65);
+      align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      background: white;
+      border-radius: var(--radius);
+      max-width: 580px; width: 100%;
+      max-height: 80vh; overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none; cursor: pointer;
+      font-size: 1.4rem; color: var(--muted);
+      line-height: 1;
+    }
+    .modal-name { font-family: var(--serif); font-size: 1.4rem; color: var(--deep); margin-bottom: 0.25rem; }
+    .modal-role { color: var(--muted); font-size: 0.88rem; margin-bottom: 1.5rem; }
+    .modal-bio-en { color: var(--text); line-height: 1.75; margin-bottom: 1rem; }
+    .modal-bio-zh { color: var(--muted); font-size: 0.9rem; line-height: 1.75; border-top: 1px solid #EEE8DC; padding-top: 1rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 0.75rem; }
+      .info-bar .section-inner { grid-template-columns: 1fr 1fr; }
+      .info-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="/" id="nav-brand">WCC Homeschool</a>
+  <div class="nav-links">
+    <a href="#sessions">Sessions</a>
+    <a href="#speakers">Speakers</a>
+    <a href="#donate">Donate</a>
+    <a href="/about/">About</a>
+    <span class="past-years-nav" id="nav-past-years"></span>
+    <a href="#" class="btn-nav" id="nav-register">Register →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-ornament">✦</div>
+  <div class="hero-year" id="hero-year"></div>
+  <div class="hero-title-zh" id="hero-title-zh"></div>
+  <h1 class="hero-title" id="hero-title"></h1>
+  <p class="hero-theme" id="hero-theme"></p>
+  <div class="hero-meta" id="hero-meta"></div>
+  <div class="hero-buttons" id="hero-buttons"></div>
+  <div class="hero-scroll">↓</div>
+</header>
+
+<!-- INFO BAR -->
+<section class="info-bar">
+  <div class="section-inner" id="info-bar-cards"></div>
+</section>
+
+<!-- SESSIONS -->
+<section class="sessions-section" id="sessions">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Conference Programme</p>
+      <h2 class="section-title">Sessions <span style="font-style:italic;font-size:0.7em">大會內容</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="sessions-grid reveal" id="sessions-grid"></div>
+  </div>
+</section>
+
+<!-- SPEAKERS -->
+<section id="speakers">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Our Speakers</p>
+      <h2 class="section-title">Meet the Speakers <span style="font-style:italic;font-size:0.7em">講員介紹</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="speakers-grid" id="speakers-grid"></div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section class="donate-section" id="donate">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label" style="color:var(--gold)">Support the Conference</p>
+      <h2 class="section-title">Donate <span style="font-style:italic;font-size:0.7em;color:var(--gold-lt)">奉獻</span></h2>
+      <div class="divider"></div>
+      <p style="color:#A0B890;max-width:520px;" id="donate-intro"></p>
+    </div>
+    <div class="donate-cards reveal">
+      <div class="donate-card">
+        <div class="donate-card-icon">📱</div>
+        <div class="donate-card-title">Zelle</div>
+        <div class="donate-card-detail">Send to:<br><span class="donate-card-value">wcchomeschool@hearministries.org</span><br><br>Please include your email and full name for a tax receipt.</div>
+      </div>
+      <div class="donate-card">
+        <div class="donate-card-icon">✉️</div>
+        <div class="donate-card-title">Check</div>
+        <div class="donate-card-detail">Payable to:<br><span class="donate-card-value">HEAR Ministries</span><br><br>Mail to: 380 Montague Expressway, Milpitas, CA 95035</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAST YEARS -->
+<section class="past-section" id="past-years-section">
+  <div class="section-inner reveal">
+    <p class="section-label">Conference Archive</p>
+    <h2 class="section-title">Past Conferences</h2>
+    <div class="divider"></div>
+    <div class="past-list" id="past-list"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer"></footer>
+
+<!-- SPEAKER MODAL -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-backdrop').classList.remove('open')">✕</button>
+    <div class="modal-name" id="modal-name"></div>
+    <div class="modal-role" id="modal-role"></div>
+    <div class="modal-bio-en" id="modal-bio-en"></div>
+    <div class="modal-bio-zh" id="modal-bio-zh"></div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script>
+  // ── Populate all content from CONFERENCE config ──
+
+  document.title = `${CONFERENCE.year} ${CONFERENCE.title}`;
+  document.getElementById('page-title').textContent = document.title;
+
+  // Nav
+  document.getElementById('nav-brand').textContent = `WCC ${CONFERENCE.year}`;
+  document.getElementById('nav-register').href = CONFERENCE.registerUrl;
+  const pastNav = CONFERENCE.pastYears.map(p =>
+    `<a href="${p.url}" style="color:#8A9E80;text-decoration:none;font-size:0.75rem">${p.year}</a>`
+  ).join(' · ');
+  document.getElementById('nav-past-years').innerHTML = pastNav ? `Past: ${pastNav}` : '';
+
+  // Hero
+  document.getElementById('hero-year').textContent = `${CONFERENCE.year} · ${CONFERENCE.tagline}`;
+  document.getElementById('hero-title-zh').textContent = CONFERENCE.titleChinese;
+  document.getElementById('hero-title').textContent = CONFERENCE.title;
+  document.getElementById('hero-theme').textContent = `"${CONFERENCE.theme}"`;
+
+  document.getElementById('hero-meta').innerHTML = `
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Dates</div>
+      <div class="hero-meta-value">${CONFERENCE.dates.conference}</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Hours</div>
+      <div class="hero-meta-value">${CONFERENCE.dates.dailyHours}</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Location</div>
+      <div class="hero-meta-value"><a href="${CONFERENCE.location.mapsUrl}" target="_blank">${CONFERENCE.location.name}</a></div>
+    </div>
+  `;
+
+  document.getElementById('hero-buttons').innerHTML = `
+    <a class="btn btn-primary" href="${CONFERENCE.registerUrl}" target="_blank">Register Now 報名</a>
+    <a class="btn btn-secondary" href="${CONFERENCE.videoUrl}" target="_blank">Watch Intro Video</a>
+    ${CONFERENCE.posterUrl ? `<a class="btn btn-secondary" href="${CONFERENCE.posterUrl}" target="_blank">View Poster 海報</a>` : ''}
+  `;
+
+  // Info bar
+  document.getElementById('info-bar-cards').innerHTML = `
+    <div class="info-card">
+      <div class="info-card-icon">📅</div>
+      <div class="info-card-label">Check-In</div>
+      <div class="info-card-value">${CONFERENCE.dates.checkin}</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">📍</div>
+      <div class="info-card-label">Venue</div>
+      <div class="info-card-value"><a href="${CONFERENCE.location.mapsUrl}" target="_blank">${CONFERENCE.location.name}<br>${CONFERENCE.location.address}</a></div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">✉️</div>
+      <div class="info-card-label">Contact</div>
+      <div class="info-card-value"><a href="mailto:${CONFERENCE.email}">${CONFERENCE.email}</a><br>${CONFERENCE.phone}</div>
+    </div>
+  `;
+
+  // Sessions
+  document.getElementById('sessions-grid').innerHTML = CONFERENCE.sessions.map(s => `
+    <div class="session-card reveal">
+      <div class="session-icon">${s.icon}</div>
+      <div class="session-en">${s.en}</div>
+      <div class="session-zh">${s.zh}</div>
+    </div>
+  `).join('');
+
+  // Speakers
+  document.getElementById('speakers-grid').innerHTML = CONFERENCE.speakers.map((s, i) => `
+    <div class="speaker-card reveal" style="transition-delay:${i * 0.08}s">
+      <div class="speaker-header">
+        ${s.photo
+          ? `<img class="speaker-photo" src="${s.photo}" alt="${s.name}" onerror="this.outerHTML='<div class=\\'speaker-photo-placeholder\\'>🙏</div>'">`
+          : `<div class="speaker-photo-placeholder">🙏</div>`}
+        <div>
+          <div class="speaker-name">${s.name}</div>
+          <div class="speaker-role">${s.role}</div>
+        </div>
+      </div>
+      <div class="speaker-body">
+        <div class="speaker-bio-en">${s.bioEn.length > 200 ? s.bioEn.slice(0, 200) + '…' : s.bioEn}</div>
+        <button class="speaker-toggle" onclick="openModal(${i})">Read full bio →</button>
+        ${s.bioZh ? `<div class="speaker-bio-zh">${s.bioZh.slice(0, 120)}…</div>` : ''}
+      </div>
+    </div>
+  `).join('');
+
+  // Donate intro
+  document.getElementById('donate-intro').textContent =
+    `Thank you for supporting the ${CONFERENCE.title} and HEAR Ministries. You can donate using one of the options below. May God bless you for your heart to advance His Kingdom! 謝謝您支持大會及HEAR Ministry，願神記念您對國度的擺上！`;
+
+  // Past years
+  const pastList = document.getElementById('past-list');
+  if (CONFERENCE.pastYears.length) {
+    pastList.innerHTML = CONFERENCE.pastYears.map(p =>
+      `<a class="past-link" href="${p.url}">${p.year} Conference</a>`
+    ).join('');
+    document.getElementById('past-years-section').style.display = 'block';
+  } else {
+    document.getElementById('past-years-section').style.display = 'none';
+  }
+
+  // Footer
+  document.getElementById('footer').innerHTML = `
+    © ${CONFERENCE.year} West Coast Christian Homeschool Conference &nbsp;·&nbsp;
+    HEAR Ministries &nbsp;·&nbsp;
+    <a href="mailto:${CONFERENCE.email}">${CONFERENCE.email}</a> &nbsp;·&nbsp;
+    ${CONFERENCE.phone}<br>
+    ${CONFERENCE.location.name} · ${CONFERENCE.location.address}
+  `;
+
+  // ── Modal ──
+  function openModal(i) {
+    const s = CONFERENCE.speakers[i];
+    document.getElementById('modal-name').textContent = s.name;
+    document.getElementById('modal-role').textContent = s.role;
+    document.getElementById('modal-bio-en').textContent = s.bioEn;
+    document.getElementById('modal-bio-zh').textContent = s.bioZh || '';
+    document.getElementById('modal-backdrop').classList.add('open');
+  }
+  function closeModal(e) {
+    if (e.target === document.getElementById('modal-backdrop'))
+      document.getElementById('modal-backdrop').classList.remove('open');
+  }
+
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

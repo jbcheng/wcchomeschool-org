@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WCC Homeschool Conference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:#FDF8F0; --parchment:#F5EDD8; --gold:#C8963E;
+      --gold-lt:#E8B96A; --deep:#1C2B1A; --forest:#2D4A2A;
+      --sage:#4A7A44; --text:#2C2416; --muted:#6B5B3E;
+      --serif:'Playfair Display',Georgia,serif;
+      --sans:'Source Sans 3',sans-serif;
+    }
+    body { font-family:var(--sans); background:var(--deep); color:var(--cream); min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:3rem 2rem; }
+    body::before {
+      content:''; position:fixed; inset:0; pointer-events:none;
+      background: radial-gradient(ellipse 80% 60% at 30% 70%, rgba(200,150,62,0.1) 0%,transparent 60%),
+                  radial-gradient(ellipse 60% 60% at 80% 20%, rgba(45,74,42,0.5) 0%,transparent 70%);
+    }
+    .ornament { font-size:2.5rem; opacity:0.35; margin-bottom:1.5rem; animation:fadeUp 0.8s ease both; }
+    .label { font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem; animation:fadeUp 0.8s 0.1s ease both; }
+    h1 { font-family:var(--serif); font-size:clamp(2rem,6vw,3.5rem); line-height:1.15; margin-bottom:0.5rem; animation:fadeUp 0.8s 0.2s ease both; }
+    .tagline { font-family:var(--serif); font-style:italic; color:#A0B890; margin-bottom:3.5rem; font-size:1.05rem; animation:fadeUp 0.8s 0.3s ease both; }
+    .current-year {
+      display:inline-block; padding:1.5rem 3rem;
+      background:var(--gold); color:var(--deep);
+      border-radius:50px; text-decoration:none;
+      font-weight:600; font-size:1.1rem;
+      margin-bottom:2.5rem;
+      transition:transform 0.2s,box-shadow 0.2s;
+      animation:fadeUp 0.8s 0.4s ease both;
+      box-shadow:0 4px 24px rgba(200,150,62,0.35);
+    }
+    .current-year:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(200,150,62,0.45); }
+    .current-year-sub { display:block; font-size:0.75rem; font-weight:400; opacity:0.75; margin-top:0.25rem; }
+    .past-section { animation:fadeUp 0.8s 0.5s ease both; }
+    .past-label { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:#607050; margin-bottom:1rem; }
+    .past-links { display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; }
+    .past-link {
+      display:inline-block; padding:0.5rem 1.25rem;
+      border:1px solid rgba(255,255,255,0.15); border-radius:30px;
+      text-decoration:none; color:#8A9E80; font-size:0.85rem;
+      transition:border-color 0.2s,color 0.2s;
+    }
+    .past-link:hover { border-color:var(--gold); color:var(--gold-lt); }
+    footer { margin-top:4rem; font-size:0.75rem; color:#3D5035; animation:fadeUp 0.8s 0.6s ease both; }
+    footer a { color:#607050; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  </style>
+</head>
+<body>
+  <div class="ornament">✦</div>
+  <p class="label">美西基督徒在家教育大會</p>
+  <h1>West Coast Christian<br>Homeschool Conference</h1>
+  <p class="tagline">Raising Up Godly Children · 培養敬虔後裔</p>
+
+  <a class="current-year" href="/2026/">
+    2026 Conference
+    <span class="current-year-sub">July 2–3 · Crosspoint Church, Milpitas →</span>
+  </a>
+
+  <div class="past-section">
+    <p class="past-label">Past Conferences</p>
+    <div class="past-links">
+      <a class="past-link" href="/2025/">2025 Conference</a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="mailto:info@wcchomeschool.org">info@wcchomeschool.org</a> &nbsp;·&nbsp; (408) 526-1312<br>
+    © 2026 West Coast Christian Homeschool Conference · HEAR Ministries
+  </footer>
+</body>
+</html>
