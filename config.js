@@ -27,19 +27,19 @@ const CONFERENCE = {
   // ── DATES & TIMES ───────────────────────────────────────
   dates: {
     checkin: "July 2, 2026 (Thursday) · 8:30 AM – 9:30 AM",
-    conference: "July 2–3, 2026",
+    conference: "July 2–4, 2026",
     dailyHours: "9:30 AM – 5:30 PM each day",
   },
 
   // ── LOCATION ────────────────────────────────────────────
   location: {
-    name: "Crosspoint Church",
-    address: "380 Montague Expressway, Milpitas, CA 95035",
+    name: "Crosspoint Church of Silicon Valley",
+    address: "658 Gibraltar Ct, Milpitas, CA 95035",
     mapsUrl: "https://maps.app.goo.gl/dzhLpazj5SxUm4Ss8",
   },
 
   // ── REGISTRATION ────────────────────────────────────────
-  registerUrl: "https://www.zeffy.com/en-US/ticketing/2026-west-coast-christian-homeschool-conference",
+  registerUrl: "https://www.zeffy.com/en-US/ticketing/2025-west-coast-christian-homeschool-conference",
   posterUrl: "/assets/flyer_2026.jpg",
   videoUrl: "https://youtu.be/YWwPbrD9R8Q",
 
@@ -50,15 +50,15 @@ const CONFERENCE = {
   // ── SESSIONS ────────────────────────────────────────────
   // Add, remove, or rename sessions here
   sessions: [
-    { icon: "🌱", en: "How to Start Homeschooling", zh: "如何開始在家教育" },
-    { icon: "📖", en: "Bible Memorization", zh: "背誦聖經" },
-    { icon: "👁️", en: "Catching the Vision", zh: "在家教育的異象" },
-    { icon: "🏛️", en: "Building Godly Heritage", zh: "建立屬靈傳承" },
-    { icon: "🎓", en: "From High School to College", zh: "從高中到大學" },
-    { icon: "✡️", en: "Raising Kids the Jewish Way", zh: "猶太式教養" },
-    { icon: "💑", en: "Marriage & Parenting", zh: "夫妻與親子" },
-    { icon: "🛡️", en: "Defending Our Belief", zh: "捍衛我們的信仰" },
-    { icon: "🎉", en: "Homeschool Is Fun", zh: "在家教育真好玩" },
+    { icon: "🌱", en: "TBD-How to Start Homeschooling", zh: "如何開始在家教育" },
+    { icon: "📖", en: "TBD-Bible Memorization", zh: "背誦聖經" },
+    { icon: "👁️", en: "TBD-Catching the Vision", zh: "在家教育的異象" },
+    { icon: "🏛️", en: "TBD-Building Godly Heritage", zh: "建立屬靈傳承" },
+    { icon: "🎓", en: "TBD-From High School to College", zh: "從高中到大學" },
+    { icon: "✡️", en: "TBD-Raising Kids the Jewish Way", zh: "猶太式教養" },
+    { icon: "💑", en: "TBD-Marriage & Parenting", zh: "夫妻與親子" },
+    { icon: "🛡️", en: "TBD-Defending Our Belief", zh: "捍衛我們的信仰" },
+    { icon: "🎉", en: "TBD-Homeschool Is Fun", zh: "在家教育真好玩" },
     { icon: "🏪", en: "Family & Vendor Exhibits", zh: "家庭及機構展示區" },
   ],
 
